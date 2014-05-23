@@ -1,0 +1,41 @@
+Goals:
+
+Grid:
+
+-2D Array of Tile
+
+Tile class:
+
+needs: int xcor, int ycor
+
+GetLocation()
+HasUnit?()
+GetUnit()
+
+enum Terrain implements Tile
+
+//Plain, Mountain, City....
+
+-Defense
+-Movement Value (Various movement types)
+
+enum Building implements Terrain
+-Health
+-Side
+
+enum Shop implements Building
+
+
+
+Character
+
+-attack
+-hp
+-range
+-moveRange
+-alliance
+
+WhoseTurn()
+
+
+
