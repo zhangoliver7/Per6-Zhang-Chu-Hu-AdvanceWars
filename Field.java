@@ -12,24 +12,37 @@ public class Field {
     }
 
     public String toString() {
+	//builds the string
 	StringBuilder builder = new StringBuilder();
 	for (int i = 0; i < field.length; i++) {
-	    for (int j = 0; j < field[i].length; i++) {
-
+	    for (int j = 0; j < field[i].length; j++) {
+		//adds every character
+		builder.append(field[i][j]);
 	    }
+	    //adds new line
+	    builder.append("\n");
+	    System.out.println(builder);
 	}
+	return builder.toString();
     }
 
     public static void main(String[] args) {
 	File file = new File("Field1.txt");
 	Field foo = new Field();
+	int a = 0;
 	try {
+	    
 	    Scanner sc = new Scanner(file);
-	    while (sc.hasNextLine()) {
+	    while (sc.hasNext()) {
 		String s = sc.next();		
+		//System.out.println(s + "current row");
 		for (int i = 0; i < foo.field.length; i++) {
+		    int k = 0;
 		    for (int j = 0; j < foo.field[i].length; j++){
-			foo.field[i][j] = s;
+			String temp = s.substring(k,k+1);
+			//System.out.println(temp);
+			foo.field[i][j] = temp;
+			k++;
 		    }
 		}
 	    }
@@ -38,7 +51,8 @@ public class Field {
 	catch (Exception e) {
 
 	}
-	System.out.println(Arrays.toString(foo.field));
+	foo.toString();
+	//System.out.println(foo);
     }
 
 }
