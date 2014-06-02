@@ -1,3 +1,15 @@
+Goals for week starting June 2
+
+Aight, I don't know if you guys finished the error on Field yet. If not, I guess I'll take a look into it.
+Hopefully we've all downloaded Processing by now.
+I've started familiarizing myself with the interface over the weekend, although I've failed to find any text based tutorials.
+
+In any case, this week, we should begin to try to figure out how to put the classes together
+We also need to figure out how to integrate these elements into a processing setting.
+
+Best of luck,
+-Alex
+
 Goals:
 
 Grid:
@@ -36,6 +48,3 @@ Character
 -alliance
 
 WhoseTurn()
-
-
-
