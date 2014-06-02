@@ -13,17 +13,18 @@ public class Field {
 
     public String toString() {
 	//builds the string
-	StringBuilder builder = new StringBuilder();
+	String builder = "";
 	for (int i = 0; i < field.length; i++) {
 	    for (int j = 0; j < field[i].length; j++) {
 		//adds every character
-		builder.append(field[i][j]);
+		builder += field[i][j];
+		//System.out.println("current builder" + builder + "\n" + i + " " + j);
 	    }
 	    //adds new line
-	    builder.append("\n");
-	    System.out.println(builder);
+	    builder += "\n";
+	    //System.out.println(builder);
 	}
-	return builder.toString();
+	return builder;
     }
 
     public static void main(String[] args) {
@@ -35,16 +36,15 @@ public class Field {
 	    Scanner sc = new Scanner(file);
 	    while (sc.hasNext()) {
 		String s = sc.next();		
-		//System.out.println(s + "current row");
-		for (int i = 0; i < foo.field.length; i++) {
 		    int k = 0;
-		    for (int j = 0; j < foo.field[i].length; j++){
+		    for (int j = 0; j < foo.field[a].length; j++){
 			String temp = s.substring(k,k+1);
-			//System.out.println(temp);
-			foo.field[i][j] = temp;
+			System.out.println("temp:" + temp + "   a:" + a);
+			foo.field[a][j] = temp;
 			k++;
 		    }
-		}
+		
+		a++;
 	    }
 	    
 	}
@@ -52,7 +52,7 @@ public class Field {
 
 	}
 	foo.toString();
-	//System.out.println(foo);
+	System.out.println(foo);
     }
 
 }

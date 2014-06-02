@@ -4,10 +4,13 @@ public enum Terrain{
 
     private final int def;
     private final int movefoot;
+    private final String name;
 
-    Terrain(int def, int movefoot){
+
+    Terrain(int def, int movefoot, String name){
 	this.def = def;
 	this.movefoot = movefoot;
+	this.name = name;
     }
 
     public int getDef(){
