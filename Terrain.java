@@ -1,11 +1,16 @@
-public class Terrain{
+public enum Terrain{
+
+    plain(1,1);
 
     private final int def;
     private final int movefoot;
+    private final String name;
 
-    public Terrain(int def, int movefoot){
+
+    Terrain(int def, int movefoot, String name){
 	this.def = def;
 	this.movefoot = movefoot;
+	this.name = name;
     }
 
     public int getDef(){

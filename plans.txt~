@@ -1,0 +1,31 @@
+Goals:
+
+Grid:
+
+-2D Array of Tile
+
+Tile class:
+
+needs: int xcor, int ycor
+
+GetLocation()
+HasUnit?()
+GetUnit()
+
+Terrain implements Tile
+
+-Defense
+-Movement Value
+
+Character
+
+-attack
+-hp
+-range
+-moveRange
+-alliance
+
+WhoseTurn()
+
+I wanna be, the very best, that no one ever was. To catch them is my real test, to train them is my cause..... I will travel, across the land, searching far and wide. dum dum dum dum, these pokemon, to understand... the power that's insideeeee POKEMON, gotta catchem allllllllll it's you and me...... i know it's my destiny.POKEMON...
+
