@@ -1,0 +1,23 @@
+Man, we're so tight right now, goofed hard :/
+
+Things we need to do to not get screwed over Monday:
+
+-We need to be able to display a grid of terrain.
+-We need to be able to read a text file and generate variable terrain based on the text file.
+-We need units to be able to attack enemy units, move, and capture buildings
+-With that said, we need buildings to be capturable
+-We are going to need a way to interact with the processing interface.
+Because drop-down menus are difficult, I will propose an interface based on mouse clicks at school.
+In drawing. Cause it's impossible to explain here.
+
+Slightly less important stuff (Well, actually, easier stuff):
+
+-We actually need different terrain and units.
+-We need a damage formula and how it reflects HP.
+-We should have some way to adjust the settings of the game.
+
+Cool stuff we can do if we actually finish this before due date:
+
+-CO powers
+-Weather
+-Use of Sprites
