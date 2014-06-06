@@ -70,13 +70,25 @@ public class Terrain{
 	prevTerrain = prev;
     }
 
-    public Terrain TransTer(String check){
+    public String getName(){
+	return name;
+    }
+
+    public static Terrain TransTer(String check){
 	Terrain replace = new Terrain(1,1,"?","?");
 	if (check.equals("p")){
 	    replace = new Terrain(1,1,"plain","p");
 	    return replace;
 	}
 	return replace;
+    }
+
+    public String toString(){
+	return getName();
+    }
+
+    public static void main(String[] args){
+	System.out.println(TransTer("p"));
     }
 
 }

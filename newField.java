@@ -29,7 +29,7 @@ public class newField {
 	for (int i = 0; i < field.length; i++) {
 	    for (int j = 0; j < field[i].length; j++) {
 		//adds every character
-		builder += field[i][j];
+		builder += field[i][j].getRep();
 		//System.out.println("current builder" + builder + "\n" + i + " " + j);
 	    }
 	    //adds new line
@@ -39,7 +39,7 @@ public class newField {
 	return builder;
     }
 
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
 	File file = new File("Field1.txt");
 	newField foo = new newField();
 	int a = 0;
@@ -52,7 +52,8 @@ public class newField {
 		    for (int j = 0; j < foo.field[a].length; j++){
 			String temp = s.substring(k,k+1);
 			System.out.println("temp:" + temp + "   a:" + a);
-			foo.field[a][j] = temp;
+			foo.field[a][j] = foo.field[a][j].TransTer(temp);
+			System.out.println(foo.field[a][j].getRep());
 			k++;
 		    }
 		
@@ -61,10 +62,10 @@ public class newField {
 	    
 	}
 	catch (Exception e) {
-
+	    System.out.println("something went wrong here");
 	}
 	foo.toString();
 	System.out.println(foo);
-	}*/
+    }
 
 }
