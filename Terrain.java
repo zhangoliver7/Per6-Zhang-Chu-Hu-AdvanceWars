@@ -1,6 +1,4 @@
-public enum Terrain{
-
-    plain(1,1,"plain");
+public class Terrain{
 
     private final int def;
     private final int movefoot;
@@ -9,16 +7,26 @@ public enum Terrain{
     private boolean selected;
     private int xcor;
     private int ycor;
+    private String rep;
 
-    Terrain(int def, int movefoot, String name){
+    Terrain(int def, int movefoot, String name, String rep){
 	this.def = def;
 	this.movefoot = movefoot;
 	this.name = name;
+	this.rep = rep;
 	selected = false;
     }
 
     public int getXcor(){
 	return xcor;
+    }
+
+    public String getRep(){
+	return rep;
+    }
+
+    public void setRep(String x){
+	rep = x;
     }
 
     public int getYcor(){
@@ -60,6 +68,15 @@ public enum Terrain{
 
     public void setprevTerrain(Terrain prev){
 	prevTerrain = prev;
+    }
+
+    public Terrain TransTer(String check){
+	Terrain replace = new Terrain(1,1,"?","?");
+	if (check.equals("p")){
+	    replace = new Terrain(1,1,"plain","p");
+	    return replace;
+	}
+	return replace;
     }
 
 }
