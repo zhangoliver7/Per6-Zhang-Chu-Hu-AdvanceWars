@@ -30,6 +30,14 @@ public enum Terrain{
 	return result;
     }
 
+    public void setXcor(int x){
+	xcor = x;
+    }
+
+    public void setYcor(int y){
+	ycor = y;
+    }
+
     public int getDef(){
 	return def;
     }
