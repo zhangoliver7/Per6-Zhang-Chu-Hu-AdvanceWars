@@ -1,8 +1,8 @@
 public class Terrain{
 
-    private final int def;
-    private final int movefoot;
-    private final String name;
+    private int def;
+    private int movefoot;
+    private String name;
     private Terrain prevTerrain;
     private boolean selected;
     private boolean bread;
@@ -10,6 +10,36 @@ public class Terrain{
     private int ycor;
     private String rep;
     private Unit guy;
+    private TypeT type;
+
+    Terrain(TypeT type){
+	this.type = type;
+    }
+
+    public void evaluate(){
+	switch (type){
+	case PLAIN:
+	    def = 1;
+	    movefoot = 1;
+	    name = "plain";
+	    rep = "p";
+	    break;
+	
+	case MOUNTAIN:
+	    def = 5;
+	    movefoot = 2;
+	    name = "mountain";
+	    rep = "m";
+	    break;
+	
+	case FOREST:
+	    def = 3;
+	    movefoot = 1;
+	    name = "forest";
+	    rep = "f";
+	    break;
+	}
+    }
 
     Terrain(int def, int movefoot, String name, String rep){
 	this.def = def;
@@ -98,7 +128,15 @@ public class Terrain{
     }
 
     public static void main(String[] args){
-	System.out.println(TransTer("p"));
+        Terrain test = new Terrain(TypeT.PLAIN);
+	test.evaluate();
+	System.out.println(test.getName());
+	Terrain next = new Terrain(TypeT.MOUNTAIN);
+	next.evaluate();
+	System.out.println(next.getName());
+	Terrain nyeh = new Terrain(TypeT.FOREST);
+	nyeh.evaluate();
+	System.out.println(nyeh.getName());
     }
 
 }
