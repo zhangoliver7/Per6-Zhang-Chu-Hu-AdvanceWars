@@ -8,6 +8,7 @@ public class Terrain{
     private int xcor;
     private int ycor;
     private String rep;
+    private Unit guy;
 
     Terrain(int def, int movefoot, String name, String rep){
 	this.def = def;
