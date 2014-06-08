@@ -23,6 +23,7 @@ public class Terrain{
 	    movefoot = 1;
 	    name = "plain";
 	    rep = "p";
+	    selected = false;
 	    break;
 	
 	case MOUNTAIN:
@@ -30,6 +31,7 @@ public class Terrain{
 	    movefoot = 2;
 	    name = "mountain";
 	    rep = "m";
+	    selected = false;
 	    break;
 	
 	case FOREST:
@@ -37,6 +39,13 @@ public class Terrain{
 	    movefoot = 1;
 	    name = "forest";
 	    rep = "f";
+	    selected = false;
+	    break;
+	    
+	case END:
+	    name = "end";
+	    rep = "e";
+	    selected = false;
 	    break;
 	}
     }
@@ -121,7 +130,8 @@ public class Terrain{
     public static Terrain TransTer(String check){
 	Terrain replace = new Terrain(1,1,"?","?");
 	if (check.equals("p")){
-	    replace = new Terrain(1,1,"plain","p");
+	    replace = new Terrain(TypeT.PLAIN);
+	    replace.evaluate();
 	    return replace;
 	}
 	return replace;

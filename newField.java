@@ -14,8 +14,8 @@ public class newField {
     public void setCoor(){
 	for (int x = 0; x < field.length; x++)
 	    for (int y = 0; y < field[x].length; y++){
-		field[x][y].setXcor(x);
-		field[x][y].setYcor(y);
+		field[x][y].setXcor(y);
+		field[x][y].setYcor(x);
 	    }
     }
 
@@ -26,7 +26,7 @@ public class newField {
 	if (move > 0){
 	    move -= 1;
 	    field[x][y].setprevTerrain(prev);
-	    field[x+1][y].toggleBread();
+	    field[x][y].toggleBread();
 	    if (x+1 < field.length && !(field[x+1][y].getBread())){
 		moveRange(x+1,y,move,field[x][y]);
 	    }
@@ -79,21 +79,34 @@ public class newField {
 			String temp = s.substring(k,k+1);
 			//System.out.println("temp:" + temp + "   a:" + a);
 			foo.field[a][j] = foo.field[a][j].TransTer(temp);
-			System.out.println(foo.field[a][j].getRep());
+			//System.out.println(foo.field[a][j].getRep());
 			k++;
 		    }
 		
 		a++;
 	    }
-	    
+   
 	}
 	catch (Exception e) {
 	    System.out.println("something went wrong here");
 	}
-	foo.toString();
-	System.out.println(foo);
+	//foo.toString();
+	//System.out.println(foo);
 
-	
+	foo.setCoor();
+
+	Terrain meh = new Terrain(TypeT.END);
+	foo.moveRange(11,6,3,meh);
+
+	for (int x = 0; x < foo.field.length; x++){
+	    for (int y = 0; y < foo.field[x].length; y++){
+		if (foo.field[x][y].getprevTerrain() != null){
+		    int xcor = foo.field[x][y].getXcor();
+		    int ycor = foo.field[x][y].getYcor();
+		    System.out.println(xcor + ", " + ycor);
+		}
+	    }
+	}
 
     }
 

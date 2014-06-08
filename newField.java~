@@ -45,7 +45,9 @@ public class newField {
 
     public Stack tracePath(int x, int y){
 	Stack path = new Stack();
-	Terrain prev = field[x][y].getprevTerrain()
+	Terrain prev = field[x][y].getprevTerrain();
+	return path;
+    }
 
     public String toString() {
 	//builds the string

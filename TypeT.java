@@ -1,5 +1,5 @@
 public enum TypeT{
 
-    PLAIN,MOUNTAIN,FOREST;
+    PLAIN,MOUNTAIN,FOREST,END,NA;
 
 }

@@ -110,6 +110,10 @@ public class Terrain{
 	prevTerrain = prev;
     }
 
+    public Terrain getprevTerrain() {
+	return prevTerrain;
+    }
+
     public String getName(){
 	return name;
     }
