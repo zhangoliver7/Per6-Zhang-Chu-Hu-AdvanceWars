@@ -86,7 +86,7 @@ void draw() {
   }
   image(img, xpos, ypos, 50, 50);
   try {
-    Thread.sleep(70);
+    Thread.sleep(80);
   }
   catch (Exception e) {
   }
