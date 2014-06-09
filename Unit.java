@@ -9,6 +9,8 @@ public class Unit{
     private int ycor;
     private TypeU type;
 
+    //CONSTRUCTOR METHODS
+
     public Unit(int attack, int hp, int range, int moveRange){
 	this.attack = attack;
 	this.hp = hp;
@@ -31,6 +33,8 @@ public class Unit{
 	}
     }
 
+    //COORDINATE FUNCTIONS
+
     public int getXcor(){
 	return xcor;
     }
@@ -52,9 +56,17 @@ public class Unit{
 	ycor = y;
     }
 
+    //ALLIANCE
+
     public void setSide(int side){
 	this.side = side;
     }
+
+    public int getSide(){
+	return side;
+    }
+
+    //GAMEPLAY FUNCTIONS
 
     public int getAttack(){
 	return attack;
@@ -70,10 +82,6 @@ public class Unit{
 
     public int getMoveRange(){
 	return moveRange;
-    }
-
-    public int getSide(){
-	return side;
     }
 
 }
