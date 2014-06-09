@@ -14,180 +14,207 @@ public class Terrain{
     private TypeT type;
     private boolean attacked;
 
+    //CONSTRUCTOR FUNCTIONS
+
     Terrain(TypeT type){
-	this.type = type;
+  this.type = type;
     }
 
     public void evaluate(){
-	switch (type){
-	case PLAIN:
-	    def = 1;
-	    movefoot = 1;
-	    name = "plain";
-	    rep = "p";
-	    selected = false;
-	    break;
-	
-	case MOUNTAIN:
-	    def = 5;
-	    movefoot = 2;
-	    name = "mountain";
-	    rep = "m";
-	    selected = false;
-	    break;
-	
-	case FOREST:
-	    def = 3;
-	    movefoot = 1;
-	    name = "forest";
-	    rep = "f";
-	    selected = false;
-	    break;
-	    
-	case END:
-	    name = "end";
-	    rep = "e";
-	    selected = false;
-	    break;
-	}
+  switch (type){
+  case PLAIN:
+      def = 1;
+      movefoot = 1;
+      name = "plain";
+      rep = "p";
+      selected = false;
+      break;
+  
+  case MOUNTAIN:
+      def = 5;
+      movefoot = 2;
+      name = "mountain";
+      rep = "m";
+      selected = false;
+      break;
+  
+  case FOREST:
+      def = 3;
+      movefoot = 1;
+      name = "forest";
+      rep = "f";
+      selected = false;
+      break;
+      
+  case END:
+      name = "end";
+      rep = "e";
+      selected = false;
+      break;
+  }
     }
 
     Terrain(int def, int movefoot, String name, String rep){
-	this.def = def;
-	this.movefoot = movefoot;
-	this.name = name;
-	this.rep = rep;
-	selected = false;
+  this.def = def;
+  this.movefoot = movefoot;
+  this.name = name;
+  this.rep = rep;
+  selected = false;
     }
+
+    //GETTING COORDINATES
 
     public int getXcor(){
-	return xcor;
-    }
-
-    public String getRep(){
-	return rep;
-    }
-
-    public void setRep(String x){
-	rep = x;
+  return xcor;
     }
 
     public int getYcor(){
-	return ycor;
+  return ycor;
     }
 
     public int[] getCor(){
-	int[] result = {xcor,ycor};
-	return result;
+  int[] result = {xcor,ycor};
+  return result;
     }
 
+    public void setXcor(int x){
+  xcor = x;
+    }
+
+    public void setYcor(int y){
+  ycor = y;
+    }
+
+    //GETTING TRACKER VARIABLES
+
+    //REP FROM TXT FILE
+
+    public String getRep(){
+  return rep;
+    }
+
+    public void setRep(String x){
+  rep = x;
+    }
+
+    //BREAD CRUMBS
+
     public boolean getBread(){
-	return bread;
+  return bread;
     }
 
     public void toggleBread(){
         bread = !(bread);
     }
 
-    public void setXcor(int x){
-	xcor = x;
+    public void clearBread(){
+  bread = false;
     }
 
-    public void setYcor(int y){
-	ycor = y;
-    }
+    //SELECTED TERRAIN
 
-    public int getDef(){
-	return def;
-    }
-
-    public int getMovefoot(){
-	return movefoot;
+    public boolean getSelect(){
+	return selected;
     }
 
     public void toggleSelect(){
-	selected = !(selected);
+  selected = !(selected);
     }
 
     public void clearSelect(){
-	selected = false;
+  selected = false;
     }
 
-    public void clearBread(){
-	bread = false;
-    }
+    //PREVTERRAIN
 
     public void clearHistory(){
-	prevTerrain = null;
+  prevTerrain = null;
     }
 
     public void setprevTerrain(Terrain prev){
-	prevTerrain = prev;
+  prevTerrain = prev;
     }
 
     public Terrain getprevTerrain() {
-	return prevTerrain;
+  return prevTerrain;
     }
+
+    //NAME
 
     public String getName(){
-	return name;
+  return name;
     }
 
+    //UNITS ON TERRAIN
+
     public Unit getGuy(){
-	return guy;
+  return guy;
     }
 
     public void setGuy(Unit mook){
-	guy = mook;
-	guy.setXcor(this.xcor);
-	guy.setYcor(this.ycor);
-	this.toggleHere();
+  guy = mook;
+  guy.setXcor(this.xcor);
+  guy.setYcor(this.ycor);
+  this.toggleHere();
     }
 
     public boolean hasUnit(){
-	return guyhere;
+  return guyhere;
     }
 
     public void toggleHere(){
-	guyhere = !(guyhere);
+  guyhere = !(guyhere);
     }
 
+    //UNITS GETTING ATTACKED
+
     public boolean getAttacked(){
-	return attacked;
+  return attacked;
     }
 
     public void toggleAttacked(){
-	attacked = !(attacked);
+  attacked = !(attacked);
     }
 
     public void clearAttacked(){
-	attacked = false;
+  attacked = false;
+    }
+
+    //GAMEPLAY VALUES
+
+    public int getDef(){
+  return def;
+    }
+
+    public int getMovefoot(){
+  return movefoot;
     }
 
     public static Terrain TransTer(String check){
-	Terrain replace = new Terrain(1,1,"?","?");
-	if (check.equals("p")){
-	    replace = new Terrain(TypeT.PLAIN);
-	    replace.evaluate();
-	    return replace;
-	}
-	return replace;
+  Terrain replace = new Terrain(1,1,"?","?");
+  if (check.equals("p")){
+      replace = new Terrain(TypeT.PLAIN);
+      replace.evaluate();
+      return replace;
+  }
+  return replace;
     }
 
     public String toString(){
-	return getName();
+  return getName();
     }
 
     public static void main(String[] args){
         Terrain test = new Terrain(TypeT.PLAIN);
-	test.evaluate();
-	System.out.println(test.getName());
-	Terrain next = new Terrain(TypeT.MOUNTAIN);
-	next.evaluate();
-	System.out.println(next.getName());
-	Terrain nyeh = new Terrain(TypeT.FOREST);
-	nyeh.evaluate();
-	System.out.println(nyeh.getName());
+  test.evaluate();
+  System.out.println(test.getName());
+  Terrain next = new Terrain(TypeT.MOUNTAIN);
+  next.evaluate();
+  System.out.println(next.getName());
+  Terrain nyeh = new Terrain(TypeT.FOREST);
+  nyeh.evaluate();
+  System.out.println(nyeh.getName());
     }
 
 }
+
