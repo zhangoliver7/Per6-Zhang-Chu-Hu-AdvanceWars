@@ -1,0 +1,14 @@
+We are only 5000% screwed.
+
+Ok, so we're finally at the "Processing or Die" stage.
+
+Here's was my plan. I probably should've explained this better earlier. Or something like that.
+
+We use the java files as a frame for processing. Each argument in the 2D array refers to a square plot in Processing.
+
+Our aim is to represent the array in Processing. Please note that x and y are inverted in java compared to Processing's x and y.
+(in other words, all x in java should be represented by y in processing, and visa versa).
+
+If we can do this, we can at least present. Not complete, but we won't fail.
+
+So let's do that first, and we'll
