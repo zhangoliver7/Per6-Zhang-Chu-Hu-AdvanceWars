@@ -8,26 +8,25 @@
 // 80 * 8 = 640
 // 60 * 8 = 480
 int scale = 64;
-
+boolean redTurn = true;
 boolean clicked = false;
 float bx;
 float by;
-int boxSize = 25;
-boolean overBox = false;
-boolean locked = false;
-float xOffset = 0.0; 
-float yOffset = 0.0; 
 int videoScale = 64;
 int xpos = 0;
 int ypos = 0;
+int xpos2 = 128;
+int ypos2 = 128;
 WarUnit unit = new WarUnit();
 // Number of columns and rows in our system
 int cols, rows;
 PImage img, thing;
+PImage img2;
 void setup() {
   long lastTime = millis();  
   size(640, 640);
   img = loadImage("infantry.png");
+  img2 = loadImage("blueGuy.png");
   thing = loadImage("thing.jpg");
   // Initialize columns and rows
   cols = width/videoScale;
@@ -48,6 +47,17 @@ void mousePressed() {
     else {
       clicked = true;
       img = loadImage("infantry.png");
+    }
+  }
+  
+  if (abs(mouseX - xpos2) < 50 || abs(mouseY - ypos2) < 50) {
+    if (clicked) {
+      clicked = false;
+      img2 = loadImage("blueGuyMoved.png");
+    }
+    else {
+      clicked = true;
+      img2 = loadImage("blueGuy.png");
     }
   }
 }
@@ -92,6 +102,7 @@ void draw() {
   image(thing.get(158, 150, 52, 52), 128, 448);
   image(thing.get(158, 150, 52, 52), 512, 256);
   image(img, xpos, ypos, 50, 50);
+  image(img2, xpos + 128, ypos + 128, 50,50);
   try {
     Thread.sleep(75);
   }
