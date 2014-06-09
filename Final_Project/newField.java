@@ -15,6 +15,10 @@ public class newField {
 	return field;
     }
 
+    public void setField(Terrain[][] stuff){
+        field = stuff;
+    }
+
     //GIVES EVERY TERRAIN A CORROSPONDING COORDINATE
 
     public void setCoor(){
