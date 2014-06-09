@@ -9,7 +9,7 @@
 // 60 * 8 = 480
 int scale = 64;
 
-
+boolean clicked = false;
 float bx;
 float by;
 int boxSize = 25;
@@ -25,7 +25,7 @@ int cols, rows;
 PImage img;
 void setup() {
   long lastTime = millis();  
-  size(640,640);
+  size(640, 640);
   img = loadImage("Mario Face.png");
   // Initialize columns and rows
   cols = width/videoScale;
@@ -34,26 +34,34 @@ void setup() {
 
 
 void mousePressed() {
-  stroke(100);
-  fill(200);
-  rectMode(CENTER);
-  rect(mouseX,mouseY,16,16);
+  /*stroke(100);
+   fill(200);
+   rectMode(CENTER);
+   rect(mouseX,mouseY,16,16);*/
+  if (abs(mouseX - xpos) < 50 || abs(mouseY - ypos) < 50) {
+    if (clicked)
+      clicked = false;
+    else 
+      clicked = true;
+  }
 }
 
 void draw() {
   if (keyPressed) {
-   if (key == 'w') {
-     ypos-=scale;
-   }
-   if (key == 's') {
-     ypos+=scale;
-   }
-   if (key == 'a') {
-     xpos-=scale;
-   }
-   if (key == 'd') {
-     xpos+=scale;
-   }
+    if (clicked) {
+      if (key == 'w') {
+        ypos-=scale;
+      }
+      if (key == 's') {
+        ypos+=scale;
+      }
+      if (key == 'a') {
+        xpos-=scale;
+      }
+      if (key == 'd') {
+        xpos+=scale;
+      }
+    }
   }
   background(0);
   for (int i=0; i<=cols; i++) {
@@ -61,27 +69,26 @@ void draw() {
       int x=i*scale;
       int y=j*scale;
       fill(255);
-      stroke(0);
+      //stroke(0);
       rect(x, y, scale, scale);
     }
   }  
   // Test if the cursor is over the box 
   if (mouseX > bx-boxSize && mouseX < bx+boxSize && 
-      mouseY > by-boxSize && mouseY < by+boxSize) {
+    mouseY > by-boxSize && mouseY < by+boxSize) {
     overBox = true;  
-    if(!locked) { 
-      
-    } 
-  } else {
-    
+    if (!locked) {
+    }
+  } 
+  else {
+
     overBox = false;
   }
-  image(img,xpos,ypos,50,50);
+  image(img, xpos, ypos, 50, 50);
   try {
-    Thread.sleep(70);
+    Thread.sleep(80);
   }
   catch (Exception e) {
-    
   }
 }
 
