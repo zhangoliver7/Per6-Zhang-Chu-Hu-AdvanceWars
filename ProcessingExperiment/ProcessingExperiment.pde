@@ -22,11 +22,12 @@ int xpos = 10;
 int ypos = 10;
 // Number of columns and rows in our system
 int cols, rows;
-PImage img;
+PImage img, thing;
 void setup() {
   long lastTime = millis();  
   size(640, 640);
   img = loadImage("Mario Face.png");
+  thing = loadImage("thing.jpg");
   // Initialize columns and rows
   cols = width/videoScale;
   rows = height/videoScale;
@@ -70,23 +71,17 @@ void draw() {
       int y=j*scale;
       fill(255);
       //stroke(0);
-      rect(x, y, scale, scale);
+      image(thing.get(180, 250, 65, 65), x, y);
     }
-  }  
-  // Test if the cursor is over the box 
-  if (mouseX > bx-boxSize && mouseX < bx+boxSize && 
-    mouseY > by-boxSize && mouseY < by+boxSize) {
-    overBox = true;  
-    if (!locked) {
-    }
-  } 
-  else {
-
-    overBox = false;
   }
+  image(thing.get(158, 150, 52, 52), 100, 100);
+  image(thing.get(158, 150, 52, 52), 100, 200);
+  image(thing.get(158, 150, 52, 52), 200, 100);
+  image(thing.get(158, 150, 52, 52), 300, 400);
+  image(thing.get(158, 150, 52, 52), 400, 300);
   image(img, xpos, ypos, 50, 50);
   try {
-    Thread.sleep(80);
+    Thread.sleep(75);
   }
   catch (Exception e) {
   }
