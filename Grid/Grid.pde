@@ -1,9 +1,8 @@
 // Size of each cell in the grid, ratio of window size to video size
-// 80 * 8 = 640
-// 60 * 8 = 480
+
 int scale = 64;
 
-boolean clicked = false;
+boolean clicked = true;
 float bx;
 float by;
 int boxSize = 25;
@@ -18,7 +17,7 @@ int ypos = 10;
 int cols, rows;
 PImage thing;
 WarUnit unit;
-boolean mouseShowText;
+ArrayList<WarUnit> soldiers = new ArrayList();
 
 void setup() {
   long lastTime = millis();  
@@ -32,10 +31,7 @@ void setup() {
 
 
 void mousePressed() {
-  /*stroke(100);
-   fill(200);
-   rectMode(CENTER);
-   rect(mouseX,mouseY,16,16);*/
+  soldiers.add( new WarUnit() ) ;
   if (abs(mouseX - xpos) < 50 || abs(mouseY - ypos) < 50) {
     if (clicked)
       clicked = false;
@@ -84,12 +80,8 @@ void draw() {
   }
   catch (Exception e) {
   }
-  unit.display();
-  if (dist(mouseX, mouseY, xpos, ypos)<30) {
-    fill(0);
-    text("HP:"+unit.hp+", Attack:"+unit.att+", Def:"+unit.def+",\nRange:"
-    +unit.range+", AttRange:"+unit.attrange, mouseX+5, mouseY+5);
-  }
+  for (WarUnit u : soldiers)
+    u.display();
 }
 
 class WarUnit {
@@ -108,6 +100,11 @@ class WarUnit {
 
   void display() {
     image(thing.get(160, 355, 45, 150), xpos, ypos);
+    if (dist(mouseX, mouseY, xpos, ypos)<30) {
+      fill(0);
+      text("HP:"+unit.hp+", Attack:"+unit.att+", Def:"+unit.def+",\nRange:"
+        +unit.range+", AttRange:"+unit.attrange, mouseX+25, mouseY+25);
+    }
   }
 }
 
