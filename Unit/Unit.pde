@@ -1,15 +1,3 @@
-
-WarUnit a;
-void setup() {
-  size(200,200);
-  a = new WarUnit();
-}
-
-void draw() {
-  background(255);
-  a.display();
-}
-
 class WarUnit {
   int hp, att, def, range, attrange;
   PImage img;
@@ -20,7 +8,7 @@ class WarUnit {
    def = 5;
    range = 3;
    attrange = 1;
-   img = loadImage("infantry.png"); 
+   img = loadImage("thing.jpg"); 
   }
   
   void display() {
@@ -28,7 +16,7 @@ class WarUnit {
     fill(100);
     rectMode(CENTER);
     rect(0,0,100,100);
-    image(img,0,0);
+    image(img.get(100,402,100,100));
   }
 }
 
