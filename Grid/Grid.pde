@@ -1,9 +1,3 @@
-// Learning Processing
-// Daniel Shiffman
-// http://www.learningprocessing.com
-
-// Example 16-6: Drawing a grid of squares
-
 // Size of each cell in the grid, ratio of window size to video size
 // 80 * 8 = 640
 // 60 * 8 = 480
@@ -18,19 +12,20 @@ boolean locked = false;
 float xOffset = 0.0; 
 float yOffset = 0.0; 
 int videoScale = 60;
-int xpos = 10;
+int xpos = 225;
 int ypos = 10;
 // Number of columns and rows in our system
 int cols, rows;
-PImage img, thing;
+PImage thing;
+WarUnit unit;
 void setup() {
   long lastTime = millis();  
-  size(640, 640);
-  img = loadImage("Mario Face.png");
+  size(1000, 700);
   thing = loadImage("thing.jpg");
   // Initialize columns and rows
   cols = width/videoScale;
   rows = height/videoScale;
+  unit = new WarUnit();
 }
 
 
@@ -74,16 +69,40 @@ void draw() {
       image(thing.get(180, 250, 65, 65), x, y);
     }
   }
-  image(thing.get(158, 150, 52, 52), 100, 100);
-  image(thing.get(158, 150, 52, 52), 100, 200);
-  image(thing.get(158, 150, 52, 52), 200, 100);
-  image(thing.get(158, 150, 52, 52), 300, 400);
-  image(thing.get(158, 150, 52, 52), 400, 300);
-  image(img, xpos, ypos, 50, 50);
+  int i=0;
+  while (i<4) {
+    int j=0;
+    while (j<8) {
+      image(thing.get(158, 150, 52, 52), i*50, j*50);
+      j++;
+    }
+    i++;
+  }
+  //image(thing.get(158, 150, 52, 52), 200, 100);
+  //image(thing.get(158, 150, 52, 52), 300, 400);
+  //image(thing.get(158, 150, 52, 52), 400, 300);
   try {
     Thread.sleep(75);
   }
   catch (Exception e) {
   }
+  unit.display();
 }
 
+class WarUnit {
+  int hp, att, def, range, attrange;
+  PImage img1;
+  
+  WarUnit() {
+   hp = 10;
+   att = 5;
+   def = 5;
+   range = 3;
+   attrange = 1;
+   img1 = loadImage("thing.jpg"); 
+  }
+  
+  void display() {
+    image(thing.get(160,355,45,150), xpos, ypos);
+  }
+}
