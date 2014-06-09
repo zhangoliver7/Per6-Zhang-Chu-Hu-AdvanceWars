@@ -35,6 +35,12 @@ void draw(){
     if (field[x][y].getRep().equals("p")){
      fill(120,255,0);
     }
+    if (field[x][y].getRep().equals("m")){
+     fill(230,235,5);
+    }
+    if (field[x][y].getRep().equals("f")){
+     fill(20,195,5);
+    }
     if (field[x][y].getRep().equals("?")){
      fill(250,250,250);
     }
