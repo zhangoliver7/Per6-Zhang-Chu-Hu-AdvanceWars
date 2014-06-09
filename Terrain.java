@@ -9,8 +9,10 @@ public class Terrain{
     private int xcor;
     private int ycor;
     private String rep;
+    private boolean guyhere;
     private Unit guy;
     private TypeT type;
+    private boolean attacked;
 
     Terrain(TypeT type){
 	this.type = type;
@@ -111,6 +113,10 @@ public class Terrain{
 	selected = false;
     }
 
+    public void clearBread(){
+	bread = false;
+    }
+
     public void clearHistory(){
 	prevTerrain = null;
     }
@@ -125,6 +131,37 @@ public class Terrain{
 
     public String getName(){
 	return name;
+    }
+
+    public Unit getGuy(){
+	return guy;
+    }
+
+    public void setGuy(Unit mook){
+	guy = mook;
+	guy.setXcor(this.xcor);
+	guy.setYcor(this.ycor);
+	this.toggleHere();
+    }
+
+    public boolean hasUnit(){
+	return guyhere;
+    }
+
+    public void toggleHere(){
+	guyhere = !(guyhere);
+    }
+
+    public boolean getAttacked(){
+	return attacked;
+    }
+
+    public void toggleAttacked(){
+	attacked = !(attacked);
+    }
+
+    public void clearAttacked(){
+	attacked = false;
     }
 
     public static Terrain TransTer(String check){

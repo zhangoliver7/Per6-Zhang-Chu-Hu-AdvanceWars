@@ -4,7 +4,10 @@ public class Unit{
     private int hp;
     private int range;
     private int moveRange;
-    private String alliance;
+    private int side;
+    private int xcor;
+    private int ycor;
+    private TypeU type;
 
     public Unit(int attack, int hp, int range, int moveRange){
 	this.attack = attack;
@@ -13,8 +16,44 @@ public class Unit{
 	this.moveRange = moveRange;
     }
 
-    public void setAlliance(String side){
-	alliance = side;
+    public Unit(TypeU x){
+	type = x;
+    }
+
+    public void evaluate(){
+	switch(type){
+	case INFANTRY:
+	    hp = 100;
+	    range = 1;
+	    moveRange = 3;
+	    attack = 1;
+	    break;
+	}
+    }
+
+    public int getXcor(){
+	return xcor;
+    }
+
+    public int getYcor(){
+	return ycor;
+    }
+
+    public int[] getCor(){
+	int[] result = {xcor,ycor};
+	return result;
+    }
+
+    public void setXcor(int x){
+	xcor = x;
+    }
+
+    public void setYcor(int y){
+	ycor = y;
+    }
+
+    public void setSide(int side){
+	this.side = side;
     }
 
     public int getAttack(){
@@ -33,8 +72,8 @@ public class Unit{
 	return moveRange;
     }
 
-    public String getAlliance(){
-	return alliance;
+    public int getSide(){
+	return side;
     }
 
 }
