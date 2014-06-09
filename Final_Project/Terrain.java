@@ -197,6 +197,16 @@ public class Terrain{
       replace.evaluate();
       return replace;
   }
+  if (check.equals("m")){
+   replace = new Terrain(TypeT.MOUNTAIN);
+   replace.evaluate();
+   return replace; 
+  }
+  if (check.equals("f")){
+   replace = new Terrain(TypeT.FOREST);
+   replace.evaluate();
+   return replace; 
+  }
   return replace;
     }
 

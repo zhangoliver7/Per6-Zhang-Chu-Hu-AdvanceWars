@@ -24,6 +24,7 @@ void setup(){
   field[5][5].setGuy(redshirt);
   field[11][7].setGuy(blueshirt);
   battle.setField(field);
+  System.out.println(battle);
 }
 
 void draw(){
